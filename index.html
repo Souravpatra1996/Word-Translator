@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Translator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="translator-panel" aria-labelledby="app-title">
+        <div class="brand-row">
+          <div class="brand-mark" aria-hidden="true">
+            <span>A</span>
+            <span>&#2309;</span>
+          </div>
+          <div>
+            <p class="eyebrow">Online translator</p>
+            <h1 id="app-title">Word Translator</h1>
+          </div>
+        </div>
+
+        <form class="translator-grid" id="translator-form">
+          <label class="field">
+            <span>Word or sentence</span>
+            <input
+              id="word-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Type text, like hello"
+              autofocus
+            />
+          </label>
+
+          <div class="language-row">
+            <label class="field">
+              <span>From</span>
+              <select id="source-language"></select>
+            </label>
+
+            <button class="icon-button" id="swap-button" type="button" title="Swap languages">
+              <span aria-hidden="true">&#8644;</span>
+              <span class="sr-only">Swap languages</span>
+            </button>
+
+            <label class="field">
+              <span>To</span>
+              <select id="target-language"></select>
+            </label>
+          </div>
+
+          <button class="primary-button" type="submit">Translate</button>
+        </form>
+
+        <section class="result" aria-live="polite">
+          <div>
+            <p class="result-label">Translation</p>
+            <p class="result-word" id="result-word">Start with a word</p>
+            <p class="result-note" id="result-note">Choose languages and press Translate.</p>
+          </div>
+          <div class="result-actions">
+            <button class="icon-button" id="copy-button" type="button" title="Copy translation">
+              <span aria-hidden="true">&#10697;</span>
+              <span class="sr-only">Copy translation</span>
+            </button>
+            <button class="icon-button" id="speak-button" type="button" title="Speak translation">
+              <span aria-hidden="true">&#9654;</span>
+              <span class="sr-only">Speak translation</span>
+            </button>
+          </div>
+        </section>
+
+        <section class="suggestions">
+          <div class="section-heading">
+            <h2>Try These</h2>
+            <button id="clear-history" type="button">Clear history</button>
+          </div>
+          <div class="chip-list" id="suggestion-list"></div>
+        </section>
+      </section>
+
+      <aside class="side-panel">
+        <section class="mini-panel">
+          <h2>Add A Word</h2>
+          <form id="custom-form" class="custom-form">
+            <label class="field">
+              <span>English word</span>
+              <input id="custom-english" type="text" placeholder="Example: moon" />
+            </label>
+            <label class="field">
+              <span>Language</span>
+              <select id="custom-language"></select>
+            </label>
+            <label class="field">
+              <span>Translation</span>
+              <input id="custom-translation" type="text" placeholder="Your translation" />
+            </label>
+            <button class="secondary-button" type="submit">Save word</button>
+          </form>
+        </section>
+
+        <section class="mini-panel">
+          <h2>Saved Words</h2>
+          <div class="saved-list" id="saved-list">
+            <p class="muted">No custom words yet.</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
